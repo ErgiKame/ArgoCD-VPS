@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   dnsNames:
-    - nginx.cluster.local
+    - argotest.tk
   secretName: argocd-tls
   issuerRef:
     name: letsencrypt-cluster-issuer

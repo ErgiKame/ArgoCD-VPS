@@ -1,21 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-nginx
+  name: metallb
   namespace: argocd
 spec:
   project: local
   source:
-    repoURL: 'https://kubernetes.github.io/ingress-nginx'
-    targetRevision: 4.0.13
-    helm:
-      parameters:
-        - name: admissionWebhooks.failurePolicy
-          value: 'Ignore'
-    chart: ingress-nginx
+    repoURL: 'https://metallb.github.io/metallb'
+    targetRevision: 0.12.1
+    chart: metallb
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: ingress-nginx
+    namespace: metallb-system
   syncPolicy:
     automated:
       selfHeal: true
