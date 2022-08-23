@@ -12,6 +12,8 @@ spec:
       parameters:
         - name: global.postgresql.auth.password
           value: 'GeqxUfxku2'
+        - name: persistence.existingClaim
+          value: 'local-path-pvc'
     chart: postgresql
   destination:
     server: 'https://kubernetes.default.svc'
