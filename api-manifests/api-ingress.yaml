@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "api.cluster.local"
+        - "argotest.tk"
       secretName: api-tls
   rules:
-    - host: "api.cluster.local"
+    - host: "argotest.tk"
       http:
         paths:
           - path: /(api\/.*)
