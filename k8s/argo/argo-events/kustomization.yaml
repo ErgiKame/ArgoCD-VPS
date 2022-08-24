@@ -8,5 +8,5 @@ resources:
   - install.yaml
   - event-bus.yaml
   - event-source.yaml
-  - event-source-cert.yaml
+  # - event-source-cert.yaml
   - event-source-ingress.yaml
