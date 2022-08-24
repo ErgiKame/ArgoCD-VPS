@@ -11,5 +11,5 @@ spec:
   webhook:
     testing-webhook:
       port: "12000"
-      endpoint: /
+      endpoint: /testing-webhook
       method: POST
