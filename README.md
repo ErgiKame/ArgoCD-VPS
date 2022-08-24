@@ -4,5 +4,6 @@
 #### To test argo-events webhook use: curl -X POST -H "Content-Type: application/json" -d '{"message": "Hello Webook!"}' http://eventsource.cluster.local/testing-webhook (Modify it in respect of post request url and endpoint name)
 
 ## General info
-#### cd to /etc and sudo nano hosts (add ) 172.30.0.10 argo.cluster.local, 172.30.0.10 api.cluster.local, 172.30.0.10 eventsource.cluster.local (your ip might be different you need to set LoadBalancer IP. We do this to access the services not with ip but with DNS on local machine.
+#### Before you start you need to have a kubernetes cluster that has some deployments already created. It needs cert-manager for any cluster on the cloud and for everyone using baremetal it needs metallb and local-path-provisioner.
+#### First you install argocd and then you can proceed with the apps.
 
