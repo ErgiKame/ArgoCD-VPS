@@ -25,7 +25,7 @@ spec:
                 name: webhook-eventsource-svc
                 port:
                   number: 12000
-          - path: /?(.*\)
+          - path: /?(.*)
             pathType: Prefix
             backend:
               service:
