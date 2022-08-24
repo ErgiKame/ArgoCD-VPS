@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - "argotest.tk"
-      secretName: eventsource-tls
+      secretName: event-source-tls
   rules:
     - host: "argotest.tk"
       http:

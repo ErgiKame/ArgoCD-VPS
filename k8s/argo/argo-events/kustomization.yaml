@@ -10,3 +10,4 @@ resources:
   - event-source.yaml
   - event-source-cert.yaml
   - event-source-ingress.yaml
+  - event-source-cert.yaml
