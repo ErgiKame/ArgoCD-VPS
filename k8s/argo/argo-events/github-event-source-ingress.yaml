@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: github-event-source-ingress
+  namespace: argo-events
+spec:
+  tls:
+    - hosts:
+        - "argotest.tk"
+# Temporary because of letsencrypt limitation.
+      secretName: api-tls
+  rules:
+    - host: "argotest.tk"
+      http:
+        paths:
+          - path: /github
+            pathType: Prefix
+            backend:
+              service:
+                name: github-eventsource-svc
+                port:
+                  number: 12001
