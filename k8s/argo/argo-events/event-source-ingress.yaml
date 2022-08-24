@@ -18,7 +18,7 @@ spec:
     - host: "argotest.tk"
       http:
         paths:
-          - path: /eventsource
+          - path: /(eventsource\/.*)
             pathType: Prefix
             backend:
               service:
