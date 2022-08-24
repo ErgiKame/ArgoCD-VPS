@@ -10,7 +10,7 @@ spec:
     targetRevision: 11.6.19
     helm:
       parameters:
-        - name: global.postgresql.auth.password
+        - name: auth.postgresPassword
           value: GeqxUfxku2
         - name: persistence.existingClaim
           value: local-path-pvc
