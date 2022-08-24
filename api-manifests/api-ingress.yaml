@@ -17,7 +17,7 @@ spec:
     - host: "argotest.tk"
       http:
         paths:
-          - path: /(api\/.*)
+          - path: /(my-api\/.*)
             pathType: Prefix
             backend:
               service:
