@@ -8,3 +8,4 @@ resources:
   - ingress-nginx-app.yaml
   - postgres-app.yaml
   - api-app.yaml
+  - argo-events-app.yaml

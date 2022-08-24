@@ -11,20 +11,13 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "eventsource.cluster.local"
+        - "argotest.tk"
       secretName: eventsource-tls
   rules:
-    - host: "eventsource.cluster.local"
+    - host: "argotest.tk"
       http:
         paths:
-          - path: /(eventsource\/.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: webhook-eventsource-svc
-                port:
-                  number: 12000
-          - path: /(.*)
+          - path: /eventsource
             pathType: Prefix
             backend:
               service:
