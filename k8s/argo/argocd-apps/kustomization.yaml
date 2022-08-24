@@ -3,6 +3,8 @@ kind: Kustomization
 
 resources:
   - argo-project.yaml
+  - cert-manager-app.yaml
+  - issuer.yaml
   - ingress-nginx-app.yaml
   - postgres-app.yaml
   - api-app.yaml
