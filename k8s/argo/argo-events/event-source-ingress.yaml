@@ -18,7 +18,14 @@ spec:
     - host: "argotest.tk"
       http:
         paths:
-          - path: /(eventsource(?:/|$).*)
+          - path: /(eventsource\/.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: webhook-eventsource-svc
+                port:
+                  number: 12000
+          - path: /?(.*\)
             pathType: Prefix
             backend:
               service:
