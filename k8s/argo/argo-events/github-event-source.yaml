@@ -18,5 +18,8 @@ spec:
         url: https://argotest.tk/github
       events:
         - "*"
+      apiToken:
+        name: github-access
+        key: token
       active: true
       contentType: json
