@@ -8,12 +8,12 @@ spec:
     - port: 12000
       targetPort: 12000
   github:
-    argo-combined-app:
+    ArgoCD-VPS:
       owner: ErgiKame
       repository: ArgoCD-VPS
       webhook:
         endpoint: /
-        port: "12001"
+        port: "12000"
         method: POST
         url: https://argotest.tk/github
       events:
