@@ -45,7 +45,7 @@ spec:
   - host: argotest.tk
     http:
       paths:
-      - path: /argo-workflows
+      - path: /argo-workflowss
         pathType: Prefix
         backend:
           service:
