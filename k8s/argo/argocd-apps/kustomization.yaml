@@ -9,3 +9,4 @@ resources:
   - postgres-app.yaml
   - api-app.yaml
   - argo-events-app.yaml
+  - argo-workflows-app.yaml
