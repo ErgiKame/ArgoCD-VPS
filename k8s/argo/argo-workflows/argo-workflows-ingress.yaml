@@ -1,0 +1,59 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+#     nginx.ingress.kubernetes.io/use-regex: "true"
+#     nginx.ingress.kubernetes.io/rewrite-target: /$1
+#   name: argo-workflows-ingress
+#   namespace: argo
+# spec:
+#   tls:
+#     - hosts:
+#         - "argo-workflows.cluster.local"
+#       secretName: argo-workflows-tls
+#   rules:
+#     - host: "argo-workflows.cluster.local"
+#       http:
+#         paths:
+#           - path: /(argo-workflows\/.*)
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: argo-server
+#                 port:
+#                   number: 80
+#           - path: /(.*)
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: argo-server
+#                 port:
+#                   number: 80
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+  namespace: argocd
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+spec:
+  rules:
+  - host: argotest.tk
+    http:
+      paths:
+      - path: /argo-workflows
+        pathType: Prefix
+        backend:
+          service:
+            name: argo-server
+            port:
+              number: 443
+  tls:
+  - hosts:
+    - argotest.tk
+    secretName: api-tls
