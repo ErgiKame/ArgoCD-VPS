@@ -73,7 +73,7 @@ spec:
     - argotest.tk
     secretName: api-tls
   rules:
-  - host: workflows.apps.argoproj.io
+  - host: argotest.tk
     http:
       paths:
       - path: /argo-workflows
