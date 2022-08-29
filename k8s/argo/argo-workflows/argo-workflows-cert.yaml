@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: argocd-cert
-  namespace: argocd
+  namespace: argo
 spec:
   dnsNames:
     - workflows.argotest.tk
