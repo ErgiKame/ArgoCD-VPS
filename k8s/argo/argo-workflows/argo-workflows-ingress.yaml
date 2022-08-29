@@ -32,27 +32,54 @@
 #                 port:
 #                   number: 80
 
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: argo-workflows-ingress
+#   namespace: argo
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+# spec:
+#   rules:
+#   - host: argotest.tk
+#     http:
+#       paths:
+#       - path: /argo-workflowss
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: argo-server
+#             port:
+#               number: 2746
+#   tls:
+#   - hosts:
+#     - argotest.tk
+#     secretName: api-tls
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argo-workflows-ingress
-  namespace: argo
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    # https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
+    ingress.kubernetes.io/proxy-body-size: 100M
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/app-root: "/"
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
 spec:
+  tls:
+  - hosts:
+    - argotest.tk
+    secretName: api-tls
   rules:
-  - host: argotest.tk
+  - host: workflows.apps.argoproj.io
     http:
       paths:
-      - path: /argo-workflowss
-        pathType: Prefix
+      - path: /argo-workflows
+        pathType: ImplementationSpecific
         backend:
           service:
             name: argo-server
             port:
               number: 2746
-  tls:
-  - hosts:
-    - argotest.tk
-    secretName: api-tls
