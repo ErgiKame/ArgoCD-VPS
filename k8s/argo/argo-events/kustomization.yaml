@@ -10,5 +10,5 @@ resources:
   # - event-source.yaml
   # - event-source-cert.yaml
   # - event-source-ingress.yaml
-  - github-event-source.yaml
-  - github-event-source-ingress.yaml
+  # - github-event-source.yaml
+  # - github-event-source-ingress.yaml

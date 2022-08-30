@@ -7,3 +7,5 @@ resources:
   - namespace.yaml
   - argo-workflows.yaml
   - argo-workflows-ingress.yaml
+  - github-event-source.yaml
+  - github-event-source-ingress.yaml
