@@ -6,5 +6,5 @@ namespace: argocd
 resources:
   - namespace.yaml
   - argocd.yaml
-  # - argocd-cert.yaml
+  - argocd-cert.yaml
   - argo-ingress.yaml
