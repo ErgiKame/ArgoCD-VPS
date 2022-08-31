@@ -5,8 +5,8 @@ metadata:
   namespace: api
 spec:
   dnsNames:
-    - argotest.tk
-  secretName: api-tls
+    - api.argotest.tk
+  secretName: api-new-tls
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer

@@ -11,13 +11,13 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "argotest.tk"
-      secretName: api-tls
+        - "api.argotest.tk"
+      secretName: api-new-tls
   rules:
-    - host: "argotest.tk"
+    - host: "api.argotest.tk"
       http:
         paths:
-          - path: /my-api
+          - path: /
             pathType: Prefix
             backend:
               service:
