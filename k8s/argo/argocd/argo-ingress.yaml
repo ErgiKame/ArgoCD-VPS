@@ -86,4 +86,4 @@ spec:
   tls:
   - hosts:
     - argotest.tk
-    secretName: argocd-tls
+    secretName: api-tls
