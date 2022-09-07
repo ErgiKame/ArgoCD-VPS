@@ -11,7 +11,7 @@ spec:
       parameters:
       - name: repo_url
       - name: repo_ref
-        value: refs/heads/master
+        value: refs/heads/main
       - name: repo_commit_id
         value: HEAD
       - name: container_image
@@ -20,7 +20,7 @@ spec:
       image: gcr.io/kaniko-project/executor:debug
       command: [/kaniko/executor]
       args:
-      - --context=https://github.com/ErgiKame/ArgoCD-VPS#refs/heads/master
+      - --context=https://github.com/ErgiKame/ArgoCD-VPS#refs/heads/main
       - --dockerfile=https://github.com/ErgiKame/ArgoCD-VPS/api-nodejs
       - --destination=ergikame/hyra-frontend:testingKaniko
   volumeMounts:
