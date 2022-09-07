@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: build-container-image
+  name: build-container-image-with-kaniko
   namespace: argo
   labels:
     workflows.argoproj.io/archive-strategy: "false"
 spec:
-  entrypoint: build
+  entrypoint: build-container-image
   serviceAccountName: workflow
   volumes:
   - name: kaniko-secret
@@ -16,13 +16,12 @@ spec:
         - key: .dockerconfigjson
           path: config.json
   templates:
-  - name: build
+  - name: build-container-image
     steps:
-      - - name: build
+      - - name: build-container-image
           templateRef:
-            name: build-container-image
+            name: build-container-image-with-kaniko
             template: build-kaniko-git
-            clusterScope: true
           arguments:
             parameters:
             - name: repo_url
