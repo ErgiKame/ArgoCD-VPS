@@ -7,3 +7,5 @@
 #### Before you start you need to have a kubernetes cluster that has some deployments already created. It needs cert-manager + clusterissuer (lets encrypt) for any cluster on the cloud and for everyone using baremetal it needs metallb and local-path-provisioner.
 #### First you install argocd and then you can proceed with the apps.
 
+#### You need to create docker config json. Use:
+#### kubectl -n argo create secret docker-registry regcred --docker-server=$REGISTRY_SERVER --docker-username=$REGISTRY_USER --docker-password=$REGISTRY_PASSSOWRD --docker-email=$REGISTRY_EMAIL
