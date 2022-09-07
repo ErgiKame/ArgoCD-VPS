@@ -20,7 +20,7 @@ spec:
       image: gcr.io/kaniko-project/executor:debug
       command: [/kaniko/executor]
       args:
-      - --context=https://github.com/ErgiKame/ArgoCD-VPS#refs/heads/main
+      - --context=https://github.com/ErgiKame/ArgoCD-VPS
       - --dockerfile=https://github.com/ErgiKame/ArgoCD-VPS/api-nodejs
       - --destination=ergikame/hyra-frontend:testingKaniko
   volumeMounts:
