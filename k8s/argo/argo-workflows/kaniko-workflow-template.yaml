@@ -1,7 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
-kind: ClusterWorkflowTemplate
+kind: WorkflowTemplate
 metadata:
-  name: container-image
+  name: build-container-image
+  namespace: argo
 spec:
   serviceAccountName: workflow
   templates:
