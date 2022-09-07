@@ -10,4 +10,5 @@ resources:
   - github-event-source.yaml
   - github-event-source-ingress.yaml
   - workflows-rbac.yaml
-  # - kaniko-workflow-template.yaml
+  - kaniko-workflow-template.yaml
+  - kaniko-workflow.yaml
