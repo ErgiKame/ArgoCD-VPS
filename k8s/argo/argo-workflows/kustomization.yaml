@@ -14,3 +14,4 @@ resources:
   # - kaniko-workflow.yaml
   - kaniko-cluster-workflow.yaml
   - kaniko-sensor.yaml
+  - workflow.yaml
