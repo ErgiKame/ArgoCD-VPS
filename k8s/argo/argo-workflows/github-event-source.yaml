@@ -12,10 +12,10 @@ spec:
       owner: ErgiKame
       repository: ArgoCD-VPS
       webhook:
-        endpoint: /
+        endpoint: /github
         port: "12000"
         method: POST
-        url: https://argotest.tk/github
+        url: https://argotest.tk
       events:
         - "*"
       apiToken:
