@@ -1,8 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
-kind: WorkflowTemplate
+kind: ClusterWorkflowTemplate
 metadata:
-  name: build-container-image-with-kaniko
-  namespace: argo
+  name: container-image
 spec:
   serviceAccountName: workflow
   templates:
@@ -20,9 +19,8 @@ spec:
       image: gcr.io/kaniko-project/executor:debug
       command: [/kaniko/executor]
       args:
-      - --context=https://github.com/ErgiKame/ArgoCD-VPS
-      - --dockerfile=https://github.com/ErgiKame/ArgoCD-VPS/api-nodejs/
-      - --destination=ergikame/hyra-frontend:testingKaniko
-  volumeMounts:
-    - name: regcred
-      mountPath: /kaniko/.docker/
+      - --context={{inputs.parameters.repo_url}}#{{inputs.parameters.repo_ref}}#{{inputs.parameters.repo_commit_id}}
+      - --destination={{inputs.parameters.container_image}}:{{inputs.parameters.container_tag}}
+      volumeMounts:
+        - name: regcred
+          mountPath: /kaniko/.docker/

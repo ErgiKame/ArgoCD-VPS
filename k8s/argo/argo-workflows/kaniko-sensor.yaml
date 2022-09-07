@@ -1,0 +1,67 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: webhook
+spec:
+  template:
+    serviceAccountName: argo-events-sa
+  dependencies:
+  - name: github
+    eventSourceName: github
+    eventName: webhook
+  triggers:
+  - template:
+      name: trigger
+      argoWorkflow:
+        group: argoproj.io
+        version: v1alpha1
+        resource: workflows
+        operation: submit
+        source:
+          resource:
+            apiVersion: argoproj.io/v1alpha1
+            kind: Workflow
+            metadata:
+              name: build-image
+              namespace: workflows
+            spec:
+              entrypoint: build
+              serviceAccountName: workflow
+              volumes:
+              - name: regcred
+                secret:
+                  secretName: regcred
+                  items:
+                    - key: .dockerconfigjson
+                      path: config.json
+              # - name: github-access
+              #   secret:
+              #     secretName: github-access
+              #     items:
+              #       - key: token
+              #         path: token
+              #       - key: user
+              #         path: user
+              #       - key: email
+              #         path: email
+              templates:
+              - name: build
+                dag:
+                  tasks:
+                  - name: build
+                    templateRef:
+                      name: container-image
+                      template: build-kaniko-git
+                      clusterScope: true
+                    arguments:
+                      parameters:
+                      - name: repo_url
+                        value: "https://github.com/ErgiKame/ArgoCD-VPS"
+                      - name: repo_ref
+                        value: "refs/heads/main"
+                      - name: repo_commit_id
+                        value: "HEAD"
+                      - name: container_image
+                        value: ergikame/hyra-frontend
+                      - name: container_tag
+                        value: "testingKaniko"
