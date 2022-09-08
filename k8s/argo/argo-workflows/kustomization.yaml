@@ -6,12 +6,12 @@ namespace: argo
 resources:
   - namespace.yaml
   - argo-workflows.yaml
-  - argo-workflows-ingress.yaml
-  - github-event-source.yaml
-  - github-event-source-ingress.yaml
+  # - argo-workflows-ingress.yaml
+  # - github-event-source.yaml
+  # - github-event-source-ingress.yaml
   - workflows-rbac.yaml
-  # - kaniko-workflow-template.yaml
-  # - kaniko-workflow.yaml
+  - kaniko-workflow-template.yaml
+  - kaniko-workflow.yaml
   - kaniko-cluster-workflow.yaml
   - kaniko-sensor.yaml
   - workflow.yaml
