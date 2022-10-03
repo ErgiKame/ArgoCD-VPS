@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bills-chart
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://adwerx.github.io/charts/'
+    targetRevision: 3.4.3
+    chart: awx
+    helm:
+      parameters:
+        - name: postgresql.enabled
+          value: 'false'
+        - name: postgresql.postgresqlPassword
+          value: GeqxUfxku2
+        - name: postgresql.postgresqlUsername
+          value: postgres
+        - name: postgresql.postgresqlHost
+          value: postgres-postgresql.postgres.svc.cluster.local
+  project: local
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
