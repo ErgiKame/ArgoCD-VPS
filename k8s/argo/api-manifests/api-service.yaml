@@ -15,3 +15,6 @@ spec:
       protocol: TCP
       port: 443
       targetPort: 3000
+    - name: test
+      protocol: TCP
+      port: 6000
