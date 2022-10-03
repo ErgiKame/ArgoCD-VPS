@@ -22,6 +22,39 @@ spec:
           value: postgres
         - name: postgresql.postgresqlHost
           value: postgres-postgresql.postgres.svc.cluster.local
+        - name: nameOverride
+          value: '""'
+        - name: nodeSelector
+          value: '""'
+        - name: defaultAdminUser
+          value: '""'
+        - name: defaultAdminPassword
+          value: '""'
+        - name: defaultAdminExistingSecret
+          value: '""'
+        - name: default_admin_user
+          value: '""'
+        - name: default_admin_password
+          value: '""'
+        - name: affinity
+          value: '""'
+        - name: fullnameOverride
+          value: '""'
+        - name: postgresqlExistingSecret
+          value: postgres-postgresql
+        - name: secret_key
+          value: '""'
+        - name: secretKey
+          value: '""'
+        - name: secretKeyExistingSecret
+          value: '""'
+        - name: serviceAccountName
+          value: '""'
+        - name: tolerations
+          value: '""'
+        - name: extraConfiguration
+          value: '"https://example.org"'
+      valueFiles: []
   project: local
   syncPolicy:
     automated:
